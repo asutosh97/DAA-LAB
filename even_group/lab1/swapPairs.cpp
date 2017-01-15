@@ -19,7 +19,8 @@ struct node * insert(struct node *tail,int data)
 	struct node *temp = getnode(data);
 	tail->next = temp;
 	return temp;
-}void traverse(struct node *head)
+}
+void traverse(struct node *head)
 {
 	struct node *temp = head->next;
 	while(temp)
