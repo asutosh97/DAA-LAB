@@ -38,9 +38,9 @@ int main()
 	for(int i = 0;i < n; i++)
 		std::cin>>a[i];
 	merge_sort(a,0,n);
-	std::cout<<"The elements after sorting are : ";
-	for(int i = 0;i < n; i++)
-		std::cout<<a[i]<<" ";
-	std::cout<<std::endl;
+	std::cout<<"Enter the value of k :";
+	int k;
+	std::cin>>k;
+	std::cout<<"The "<<k<<"th shortest element is : "<<a[k-1]<<std::endl;
 	return 0;
 }

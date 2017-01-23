@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+int count = 0;
 void merge(int a[],int beg,int mid,int end)
 {
 	int n1 = mid - beg;
@@ -17,7 +18,10 @@ void merge(int a[],int beg,int mid,int end)
 
 	i = j = 0;
 	for(k = beg;k < end; k++)
+	{
+		count++;
 		a[k] = (b[i] < c[j])?b[i++]:c[j++];
+	}
 }
 void merge_sort(int a[],int beg,int end)
 {
@@ -38,9 +42,6 @@ int main()
 	for(int i = 0;i < n; i++)
 		std::cin>>a[i];
 	merge_sort(a,0,n);
-	std::cout<<"The elements after sorting are : ";
-	for(int i = 0;i < n; i++)
-		std::cout<<a[i]<<" ";
-	std::cout<<std::endl;
+	std::cout<<"The largest element is "<<a[n-1]<<" and the number of comparisions is "<<count<<std::endl;
 	return 0;
 }

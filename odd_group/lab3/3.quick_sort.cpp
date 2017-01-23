@@ -1,14 +1,16 @@
-//1st element as pivot
+//last element as pivot
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 int partition(int a[],int beg,int end)
 {
-	int x = a[beg];
-	int i = beg,j;
-	for(j = beg + 1;j < end; j++)
+	int x = a[end - 1];
+	int i = beg-1,j;
+	for(j = beg;j < end-1; j++)
 		if(a[j] < x)
-			swap(a[++i],a[j]);
-	swap(a[beg],a[i]);
+			std::swap(a[++i],a[j]);
+	i++;
+	std::swap(a[end-1],a[i]);
 	return i;
 }
 void quick_sort(int a[],int beg,int end)
@@ -32,6 +34,6 @@ int main()
 	std::cout<<"The elements after sorting are : ";
 	for(int i = 0;i < n; i++)
 		std::cout<<a[i]<<" ";
-	std::cout<<endl;
+	std::cout<<std::endl;
 	return 0;
 }
