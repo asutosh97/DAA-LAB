@@ -1,46 +1,49 @@
 #include <iostream>
 #include <climits>
-void merge(int a[],int beg,int mid,int end)
+int partition(int a[], int beg, int end)
 {
-	int n1 = mid - beg;
-	int n2 = end - mid;
-	int b[n1+1],c[n2+1];
-
-	int i,j,k;
-	for(k = beg,i = 0;i < n1; i++,k++)
-		b[i] = a[k];
-	b[n1] = INT_MAX;
-
-	for(j = 0;j < n2; j++,k++)
-		c[j] = a[k];
-	c[n2] = INT_MAX;
-
-	i = j = 0;
-	for(k = beg;k < end; k++)
-		a[k] = (b[i] < c[j])?b[i++]:c[j++];
+	int x = a[end - 1];
+	int i = beg - 1;
+	int j;
+	for(j = beg; j < end - 1; j++)
+		if(a[j] < x)
+			std::swap(a[++i],a[j]);
+	std::swap(a[++i],a[end - 1]);
+	return i;
 }
-void merge_sort(int a[],int beg,int end)
+int kthSmallest(int a[], int beg, int end, int k)
 {
 	if(end - beg <= 1)
-		return;
-	int mid = (beg + end) / 2;
-	merge_sort(a,beg,mid);
-	merge_sort(a,mid,end);
-	merge(a,beg,mid,end);
+	{
+		if(beg == k - 1)
+			return a[k-1];
+		else
+			return INT_MAX;
+	}
+	int q = partition(a, beg, end);
+	if(q == k-1)
+		return a[k-1];
+	else if(k-1 < q)
+		return kthSmallest(a, beg, q, k);
+	else
+		return kthSmallest(a, q+1, end, k);
 }
 int main()
 {
 	int n;
-	std::cout<<"Enter the size of array : ";
+	std::cout<<"Enter the number of elements in the array : ";
 	std::cin>>n;
 	int a[n];
 	std::cout<<"Enter the elements of the array : ";
 	for(int i = 0;i < n; i++)
 		std::cin>>a[i];
-	merge_sort(a,0,n);
-	std::cout<<"Enter the value of k :";
 	int k;
+	std::cout<<"Enter the value of k : ";
 	std::cin>>k;
-	std::cout<<"The "<<k<<"th shortest element is : "<<a[k-1]<<std::endl;
+	int ksmall = kthSmallest(a, 0, n, k);
+	if(ksmall != INT_MAX)
+		std::cout << "The "<< k << "th smallest element is : " << ksmall << std::endl;
+	else
+		std::cout << "Error!" << std::endl;
 	return 0;
 }

@@ -1,8 +1,6 @@
 #include <iostream>
-int count = 0;
 int karySearch(int arr[],int beg,int end,int item,int k)
 {
-	count++;
 	//	if less than k elements is present in the array
 	if(end - beg <= k - 1)
 	{

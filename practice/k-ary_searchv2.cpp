@@ -12,8 +12,9 @@ int karySearch(int arr[],int beg,int end,int item,int k)
 	else
 	{
 		int prev = beg;
-		int step = (end - beg + 1)/k;
-		int next = prev + step;
+		int noOfElements = (end - beg + 1);
+		int step = noOfElements/k;
+		int next = prev + step - 1;
 		for(int i = 1;i < k; i++)
 		{
 			if(item <= arr[next])
