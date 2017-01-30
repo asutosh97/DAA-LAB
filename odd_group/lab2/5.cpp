@@ -1,8 +1,14 @@
 // Asutosh Sahoo
 // B115017
 // CSE 4th Sem
+/*
+Q5. WAP to creat the binary tree and do the follwing operations:
+a.find the number of full nodes in the binary tree
+b.print all ancestor of a node in a binary tree
+c.for a given node count the number of children of that nodes.
+*/
+
 #include <iostream>
-using namespace std;
 struct node{
 	int data;
 	struct node *left;
@@ -47,7 +53,7 @@ bool printNodeAncestors(struct node *curr,int value)
 
 	if(printNodeAncestors(curr->left,value) || printNodeAncestors(curr->right,value))
 	{
-		cout<<curr->data<<" ";
+		std::cout<<curr->data<<" ";
 		return true;
 	}
 	else
@@ -82,21 +88,21 @@ int childNodes(struct node *head,int value)
 int main()
 {
 	int n;
-	cout<<"Enter the number of elements to be inserted : ";
-	cin>>n;
+	std::cout<<"Enter the number of elements to be inserted : ";
+	std::cin>>n;
 	int a[n];
 	for(int i = 0;i < n; i++)
-		cin>>a[i];
+		std::cin>>a[i];
 	struct node *head = NULL;
 	head = heapInsert(head,0,a,n);
-	cout<<"Number of complete nodes = "<<completeNodes(head)<<endl;
-	cout<<"Enter the value of the node of which you want to see the ancestors : ";
+	std::cout<<"Number of complete nodes = "<<completeNodes(head)<<std::endl;
+	std::cout<<"Enter the value of the node of which you want to see the ancestors : ";
 	int value;
-	cin>>value;
+	std::cin>>value;
 	printNodeAncestors(head,value);
-	cout<<endl;
-	cout<<"Enter the node whose number of childs you want to count : ";
-	cin>>value;
-	cout<<"Childs of the node = "<<childNodes(head,value)<<endl;
+	std::cout<<std::endl;
+	std::cout<<"Enter the node whose number of childs you want to count : ";
+	std::cin>>value;
+	std::cout<<"Childs of the node = "<<childNodes(head,value)<<std::endl;
 	return 0;
 }

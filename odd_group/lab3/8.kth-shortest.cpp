@@ -1,14 +1,17 @@
 #include <iostream>
 #include <climits>
-int partition(int a[], int beg, int end)
+#include <ctime>
+int partition(int a[],int beg,int end)
 {
-	int x = a[end - 1];
-	int i = beg - 1;
-	int j;
-	for(j = beg; j < end - 1; j++)
+	srand((unsigned)time(NULL));
+	int random_pivot = beg + rand() % (end - beg);
+	std::swap(a[random_pivot],a[beg]);
+	int x = a[beg];
+	int i = beg,j;
+	for(j = beg + 1;j < end; j++)
 		if(a[j] < x)
 			std::swap(a[++i],a[j]);
-	std::swap(a[++i],a[end - 1]);
+	std::swap(a[beg],a[i]);
 	return i;
 }
 int kthSmallest(int a[], int beg, int end, int k)

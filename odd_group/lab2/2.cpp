@@ -1,8 +1,10 @@
 // Asutosh Sahoo
 // B115017
 // CSE 4th Sem
+/*
+Q2.WAP to print the zigzag tree traversal
+*/
 #include <iostream>
-using namespace std;
 struct node
 {
 	int data;
@@ -31,14 +33,14 @@ int height(struct node *curr)
 {
 	if(!curr)
 		return 0;
-	return 1+max(height(curr->left),height(curr->right));
+	return 1+std::max(height(curr->left),height(curr->right));
 }
 void traverseLevel(struct node *curr,int level,bool ltr)
 {
 	if(!curr)
 		return;
 	if(level == 1)
-		cout<<curr->data<<" ";
+		std::cout<<curr->data<<" ";
 	else
 	{
 		if(ltr)
@@ -62,16 +64,16 @@ void spiralTraverse(struct node *head)
 		traverseLevel(head,i,ltr);
 		ltr = !ltr;
 	}
-	cout<<endl;
+	std::cout<<std::endl;
 }
 int main()
 {
 	int n;
-	cout<<"Enter the number of elements to be inserted : ";
-	cin>>n;
+	std::cout<<"Enter the number of elements to be inserted : ";
+	std::cin>>n;
 	int a[n];
 	for(int i = 0;i < n; i++)
-		cin>>a[i];
+		std::cin>>a[i];
 	struct node *head = NULL;
 	head = heapInsert(head,0,a,n);
 	spiralTraverse(head);

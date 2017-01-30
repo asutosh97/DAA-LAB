@@ -22,16 +22,16 @@ void quick_sort(int a[],int beg,int end)
 int main()
 {
 	int n;
-	std::cout<<"Enter the size of array : ";
-	std::cin>>n;
+	std::cout << "Enter the size of array : ";
+	std::cin >> n;
 	int a[n];
-	std::cout<<"Enter the elements of the array : ";
+	std::cout << "Enter the elements of the array : ";
 	for(int i = 0;i < n; i++)
-		std::cin>>a[i];
+		std::cin >> a[i];
 	quick_sort(a,0,n);
-	std::cout<<"The elements after sorting are : ";
+	std::cout << "The elements after sorting are : ";
 	for(int i = 0;i < n; i++)
-		std::cout<<a[i]<<" ";
-	std::cout<<std::endl;
+		std::cout << a[i] << " ";
+	std::cout << std::endl;
 	return 0;
 }

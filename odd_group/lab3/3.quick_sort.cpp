@@ -1,7 +1,6 @@
 //last element as pivot
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
 int partition(int a[],int beg,int end)
 {
 	int x = a[end - 1];
