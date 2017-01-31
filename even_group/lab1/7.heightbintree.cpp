@@ -1,5 +1,6 @@
-//RITESH KUMAR MOHAPATRA B115045
-//HEIGHT OF A BINARY TREE
+/*
+height of a binary tree
+*/
 #include <iostream>
 using namespace std;
 struct node{
@@ -34,12 +35,12 @@ int height(struct node *current)
 int main()
 {
     int n,i,ch;
-	cout<<"Enter the number of elements to be inserted : "<<endl;
-	cin>>n;
+	std::cout<<"Enter the number of elements to be inserted : "<<std::endl;
+	std::cin>>n;
 	int a[n];
 	for(i= 0;i < n; i++)
-		cin>>a[i];
+		std::cin>>a[i];
 	struct node *head = NULL;
 	head = binary_insert(head,0,a,n);
-	cout<<"height of binary tree: "<<height(head)<<endl;
+	std::cout<<"height of binary tree: "<<height(head)<<std::endl;
 }

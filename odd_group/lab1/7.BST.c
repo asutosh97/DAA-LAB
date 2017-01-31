@@ -1,4 +1,6 @@
-//Insert in a binary tree and in order traversal
+/*
+Insert in a binary tree and in order traversal
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -77,17 +79,23 @@ void postorderTraversal(struct node *root)
     postorderTraversal(root->right);
     printf("%d ",root->data);
 }
-int main() {
+int main() 
+{
     int choice,data;
     while(1)
     {
-        printf("\n\t\tBST OPERATIONS\n\t\t1.Insert\n\t\t2.Inorder Traversal\n\t\t3.Preorder Traversal\n\t\t4.Postorder Traversal\n\t\t5.Exit");
-        printf("\nYour Choice:");
+        printf("BST OPERATIONS\n");
+        printf("1.Insert\n");
+        printf("2.Inorder Traversal\n");
+        printf("3.Preorder Traversal\n");
+        printf("4.Postorder Traversal\n");
+        printf("5.Exit\n");
+        printf("Your Choice : ");
         scanf("%d",&choice);
         switch(choice)
         {
             case 1:
-                    printf("\n Enter the data to be inserted:");
+                    printf("Enter the data to be inserted:");
                     scanf("%d",&data);
                     root = insertIntoBST(root,data);
                     break;
@@ -103,7 +111,7 @@ int main() {
             case 5:
                     exit(0);
             default:
-                    printf("\nEnter valid choice.");                    
+                    printf("Enter valid choice.");                    
         }
     }
     return 0;

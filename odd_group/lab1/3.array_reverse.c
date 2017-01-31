@@ -1,19 +1,21 @@
-//program to reverse an array
+/*
+program to reverse an array
+*/
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     int size,i,temp;
     
-    printf("\n Enter the size of the array:");
+    printf("Enter the size of the array:");
     scanf("%d",&size);
     
     int arr[size];
     
-    printf("\n Enter array elements:");
+    printf("Enter array elements:");
     for(i=0;i<size;i++)
         scanf("%d",&arr[i]);
-        
-    //Reversing the elements of the array
+
     for(i=0;i<size/2;i++)
     {
        temp = arr[i];
@@ -21,10 +23,10 @@ int main() {
        arr[size-i-1] = temp;
     }
     
-    //Printing the reversed array
-    printf("\n Reversed array:");
+    printf("Reversed array:");
     for(i=0;i<size;i++)
         printf("%d ",arr[i]);
         
+    printf("\n");
     return 0;
 }

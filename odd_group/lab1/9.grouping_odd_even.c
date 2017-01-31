@@ -1,4 +1,7 @@
-//separate odd & even & put evens first then odd.
+/*
+separate odd & even & put evens first then odd.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,12 +12,13 @@ void swap(int *a,int *b)
     *a = *b;
     *b = temp;
 }
-int main() {
+int main() 
+{
     int size,i,j,k=0;
-    printf("\n Enter the size of the array:");
+    printf("Enter the size of the array:");
     scanf("%d",&size);
     int arr[size];
-    printf("\n Enter the array elements:");
+    printf("Enter the array elements:");
     for(i=0;i<size;i++)
         scanf("%d",&arr[i]);
 
@@ -28,9 +32,8 @@ int main() {
                 i++;
             }
         }  
-    }
-    
-     for(i=0;i<size;i++)
+    } 
+    for(i=0;i<size;i++)
     {
         printf("%d ",arr[i]);
     }

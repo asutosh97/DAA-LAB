@@ -1,3 +1,6 @@
+/*
+modify head
+*/
 #include <stdio.h>
 #include <stdlib.h>
 struct node
@@ -5,7 +8,6 @@ struct node
     int data;
     struct node *next;
 };
-
 struct node * insertAtBeginning(struct node * start,int data)
 {
     struct node *nw = (struct node*)malloc(sizeof(struct node));
@@ -21,12 +23,11 @@ struct node * insertAtBeginning(struct node * start,int data)
     }
     return start;
 }
-
 void traverse(struct node *start)
 {
     struct node *temp = start;
     if(start == NULL)
-        printf("\n Can't traverse an empty linked list.");
+        printf("Can't traverse an empty linked list\n");
     while(temp!=NULL)
     {
         printf("%d\t",temp->data) ;
@@ -44,24 +45,30 @@ struct node * delBeg(struct node *start)
         
      return start;
 }
-int main() {
+int main() 
+{
    int choice,data;
    struct node *start = NULL;
    while(1)
    {
-      printf("\n\t\t MODIFY HEAD PROGRAM \n\t\t 1.Insert at the beginning \n\t\t 2.Delete from beginning \n\t\t 3.Traverse \n\t\t 4.Exit");
-      printf("\n Your choice:");
+      printf("\n");
+      printf("Modify Head Program\n");
+      printf("1.Insert at the beginning\n");
+      printf("2.Delete from beginning\n");
+      printf("3.Traverse\n");
+      printf("4.Exit\n");
+      printf("Your choice:\n");
       scanf("%d",&choice);
       switch(choice)
       {
         case 1:
-                printf("\n Enter the data:");
+                printf("Enter the data:\n");
                 scanf("%d",&data);
                 start = insertAtBeginning(start,data);
                 break;
         case 2:
                 if(start == NULL)
-                    printf("\n Linked List is already empty.");
+                    printf("Linked List is already empty.\n");
                 else
                  start = delBeg(start);
                 break;
@@ -71,7 +78,7 @@ int main() {
         case 4:
                 exit(0);
         default:
-                printf("\n No options available!!!");
+                printf("No options available!!!\n");
       }
    }
    free(start);

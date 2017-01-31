@@ -1,4 +1,6 @@
-//wap to sort a linked list
+/*
+wap to sort a linked list
+*/
 #include <stdio.h>
 #include <stdlib.h>
 struct node
@@ -64,17 +66,23 @@ void sort()
     free(temp2);
 }
 
-int main() {
+int main() 
+{
    int choice,data;
    while(1)
    {
-      printf("\n\t\t SORT LINKED LIST PROGRAM \n\t\t 1.Insert\n\t\t 2.Sort the linked list \n\t\t 3.Traverse \n\t\t 4.Exit");
-      printf("\n Your choice:");
+    printf("\n");
+      printf("SORT LINKED LIST PROGRAM");
+      printf("1.Insert \n");
+      printf("2.Sort the linked list \n");
+      printf("3.Traverse \n");
+      printf("4.Exit \n");
+      printf("Your choice: \n");
       scanf("%d",&choice);
       switch(choice)
       {
         case 1:
-                printf("\n Enter the data:");
+                printf("Enter the data: \n");
                 scanf("%d",&data);
                 start = insert(data);
                 break;
@@ -87,11 +95,10 @@ int main() {
         case 4:
                 exit(0);
         default:
-                printf("\n No options available!!!");
+                printf("No options available!!! \n");
       }
    }
    free(start);
    free(current);
    return 0;
 }
-

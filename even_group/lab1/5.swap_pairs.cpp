@@ -1,6 +1,9 @@
+/*
+swap elements in pairs
+*/
+
 #include <iostream>
 #include <cstdlib>
-using namespace std;
 
 struct node{
 	int data;
@@ -25,10 +28,10 @@ void traverse(struct node *head)
 	struct node *temp = head->next;
 	while(temp)
 	{
-		cout<<temp->data<<" ";
+		std::cout<<temp->data<<" ";
 		temp = temp->next;
 	}
-	cout<<endl;
+	std::cout<<std::endl;
 }
 void swapValues(struct node * *a,struct node * *b)
 {
@@ -59,18 +62,18 @@ int main()
 	struct node *tail = head;
 	while(1)
 	{
-		cout<<"1.Insert"<<endl;
-		cout<<"2.Traverse"<<endl;
-		cout<<"3.Swap Nodes"<<endl;
-		cout<<"4.Exit"<<endl;
+		std::cout<<"1.Insert"<<std::endl;
+		std::cout<<"2.Traverse"<<std::endl;
+		std::cout<<"3.Swap Nodes"<<std::endl;
+		std::cout<<"4.Exit"<<std::endl;
 		int ch,x,y;
 		bool status;
-		cin>>ch;
+		std::cin>>ch;
 		switch(ch)
 		{
 			case 1:
-				cout<<"Enter the value to be inserted : ";
-				cin>>x;
+				std::cout<<"Enter the value to be inserted : ";
+				std::cin>>x;
 				tail = insert(tail,x);
 				break;
 			case 2:
@@ -82,7 +85,7 @@ int main()
 			case 4:
 				return 0;
 			default:
-				cout<<"try again ..."<<endl;
+				std::cout<<"try again ..."<<std::endl;
 		}
 	}
 }

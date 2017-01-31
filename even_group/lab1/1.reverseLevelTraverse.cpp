@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
-using namespace std;
-struct node{
+struct node
+{
 	struct node *left;
 	struct node *right;
 	int data;
@@ -18,14 +18,14 @@ int treeHeight(struct node *curr)
 {
 	if(!curr)
 		return 0;
-	return 1 + max(treeHeight(curr->left),treeHeight(curr->right));
+	return 1 + std::max(treeHeight(curr->left),treeHeight(curr->right));
 }
 void printGivenLevel(struct node *curr,int level)
 {
 	if(!curr)
 		return;
 	else if(level == 1)
-		cout<<curr->data<<" ";
+		std::cout<<curr->data<<" ";
 	else
 	{
 		printGivenLevel(curr->right,level-1);
@@ -37,7 +37,7 @@ void reverseLevelTraverse(struct node *head)
 	int H = treeHeight(head);
 	for(int i = H;i >= 1;i--)
 		printGivenLevel(head,i);
-	cout<<endl;
+	std::cout<<std::endl;
 }
 struct node * heapInsert(struct node *curr,int position,int *arr,int size)
 {
@@ -52,11 +52,11 @@ struct node * heapInsert(struct node *curr,int position,int *arr,int size)
 int main()
 {
 	int n;
-	cout<<"Enter the number of elements to be inserted : ";
-	cin>>n;
+	std::cout<<"Enter the number of elements to be inserted : ";
+	std::cin>>n;
 	int a[n];
 	for(int i = 0;i < n; i++)
-		cin>>a[i];
+		std::cin>>a[i];
 	struct node *head = NULL;
 	head = heapInsert(head,0,a,n);
 	reverseLevelTraverse(head);

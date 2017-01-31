@@ -1,20 +1,21 @@
-//Find out who won the election i.e. print the number which appear the most number of times
+/*
+Find out who won the election i.e. print the number which appear the most number of times
+*/
 
 #include <stdio.h>
-
-int main() {
+int main() 
+{
     int size,i,j,count=0,max=0,ID;
     
-    printf("\n Enter the size of the array:");
+    printf("Enter the size of the array:");
     scanf("%d",&size);
     
     int arr[size];
     
-    printf("\n Enter the array elements:");
+    printf("Enter the array elements:");
     for(i=0;i<size;i++)
         scanf("%d",&arr[i]);
     
-    //counting who got the maximum vote
     for(i=0;i<size;i++)
     {
         count = 0;
@@ -32,8 +33,6 @@ int main() {
         }
     }
     
-    //Printing the id of highest number of votes
-    printf("\nElection won:%d",ID);
-    
+    printf("Election won : %d",ID);
     return 0;
 }

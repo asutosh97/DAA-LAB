@@ -1,8 +1,8 @@
-//B115045 RITESH KUMAR MOHAPATRA
-//INSERT A NODE IN THE MIDDLE
-#include<iostream>
-#include<cstdlib>
-using namespace std;
+/*
+insert node in the middle of linked list
+*/
+#include <iostream>
+#include <cstdlib>
 struct node
 {
     int data;
@@ -12,8 +12,8 @@ struct node *head = NULL;
 void insertb()
 {
     int item;
-    cout<<"enter data"<<endl;
-    cin>>item;
+    std::cout<<"enter data"<<std::endl;
+    std::cin>>item;
     struct node *newnode = new struct node;
     newnode->data=item;
     newnode->link=NULL;
@@ -35,8 +35,8 @@ void insertb()
 void insertm()
 {
     int item;
-    cout<<"enter data"<<endl;
-    cin>>item;
+    std::cout<<"enter data"<<std::endl;
+    std::cin>>item;
     struct node *newnode = new struct node;
     newnode->data=item;
     newnode->link=NULL;
@@ -66,27 +66,27 @@ void insertm()
 }
 void traverse()
 {
-    cout<<"llelments in the linked list:"<<endl;
+    std::cout<<"llelments in the linked list:"<<std::endl;
     struct node *ptr;
     ptr = head;
     while(ptr!=NULL)
     {
-        cout<<ptr->data<<" ";
+        std::cout<<ptr->data<<" ";
         ptr=ptr->link;
     }
-    cout<<endl;
+    std::cout<<std::endl;
 }
 int main()
 {
     int ch;
     while(1)
     {
-        cout<<"1. to enter new node"<<endl;
-        cout<<"2. to enter new node at middle"<<endl;
-        cout<<"3. to traverse"<<endl;
-        cout<<"4 tO exit"<<endl;
-        cout<<"enter your choice"<<endl;
-        cin>>ch;
+        std::cout<<"1. to enter new node"<<std::endl;
+        std::cout<<"2. to enter new node at middle"<<std::endl;
+        std::cout<<"3. to traverse"<<std::endl;
+        std::cout<<"4 tO exit"<<std::endl;
+        std::cout<<"enter your choice"<<std::endl;
+        std::cin>>ch;
         switch(ch)
         {
             case 1: insertb();
