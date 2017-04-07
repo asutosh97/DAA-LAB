@@ -15,7 +15,7 @@ void MAKESET(int x)
 {
     if(FINDSET(x) != -1)
         return;
-        component.push_back(std::make_pair(x, x));
+    component.push_back(std::make_pair(x, x));
 }
 void UNION(int a, int b)
 {

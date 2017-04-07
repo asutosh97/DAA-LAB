@@ -1,17 +1,19 @@
 #include <iostream>
-
+#define DIAGONAL 2
+#define UP 1
+#define LEFT 0
 int B[100][100];
 void print_LCS(std::string X, int i, int j)
 {
     if(i == 0 || j == 0)
         return;
 
-    if(B[i][j] == 2)
+    if(B[i][j] == DIAGONAL)
     {
         print_LCS(X,i-1,j-1);
         std::cout<<X[i-1];
     }
-    else if(B[i][j] == 1)
+    else if(B[i][j] == UP)
         print_LCS(X,i-1,j);
     else
         print_LCS(X,i,j-1);
@@ -35,19 +37,19 @@ void LCS_Length(std::string X, std::string Y)
             if(X[i-1] == Y[j-1])
             {
                 C[i][j] = C[i-1][j-1]+1;
-                B[i][j] = 2;
+                B[i][j] = DIAGONAL;
             }
             else
             {
                 if(C[i-1][j] >= C[i][j-1])
                 {
                     C[i][j] = C[i-1][j];
-                    B[i][j] = 1;
+                    B[i][j] = UP;
                 }
                 else
                 {
                     C[i][j] = C[i][j-1];
-                    B[i][j] = 0;
+                    B[i][j] = LEFT;
                 }
             }
         }

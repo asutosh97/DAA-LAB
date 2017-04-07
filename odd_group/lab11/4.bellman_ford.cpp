@@ -5,19 +5,20 @@ std::vector<int> bellman_ford(std::vector< std::pair<int, std::pair<int, int> > 
 {
 	std::vector<int> distance(n+1, INFINITY);
 	distance[s] = 0;
-	int u, v;
+	int u, v, w;
 	for(int i = 1; i < n; i++)
 	{
 		for(int i = 0; i < wt.size(); i++)
 		{
 			u = wt[i].second.first;
 			v = wt[i].second.second;
+            w = wt[i].first;
 
-			if(distance[v] > distance[u] + wt[i].first)
-				distance[v] = distance[u] + wt[i].first;
+			if(distance[v] > distance[u] + w)
+				distance[v] = distance[u] + w;
 
-			if(distance[u] > distance[v] + wt[i].first)
-				distance[u] = distance[v] + wt[i].first;
+			if(distance[u] > distance[v] + w)
+				distance[u] = distance[v] + w;
 		}
 	}
 	return distance;
@@ -27,7 +28,6 @@ int main()
 	int n;
     std::cout<<"Enter the number of vertices : ";
     std::cin>>n;
-    std::vector< int > adj_list[100];
     int e;
     std::cout<<"Enter the number of edges : ";
     std::cin>>e;

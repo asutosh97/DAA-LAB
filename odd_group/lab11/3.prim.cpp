@@ -58,7 +58,7 @@ int main()
    	std::cin>>s;
     std::vector< int > parent = prim(adj_list, wt, s, n);
     std::cout<<"The edges in the minimum spanning tree are : "<<std::endl;
-    for(int i = 1;i < parent.size(); i++)
+    for(int i = 1;i <= n ; i++)
     {
         if(parent[i] == NIL)
         	continue;
